@@ -6,8 +6,9 @@ int main (void)
 
 {
 
-    int fila,columna,salir,player;
-    char numero,caracter;
+    int fila,columna,player,contador;
+    contador=0;
+    char numero;
     char raya[3][3]{
           49,50,51,
           52,53,54,
@@ -66,6 +67,8 @@ int main (void)
        printf ("\n\n\nToken \"O\", choose a box and press enter:");
        scanf ("%d",&numero);
 
+
+
        switch (numero)
        {
            case 1 : raya[0][0]=79;
@@ -99,6 +102,7 @@ int main (void)
       printf("\n\t ===================");
       printf("\n");
 
+
        for (fila=1;fila<=1;fila++)
         for (columna=0;columna<=2;columna++)
       printf ("\t |%c|  ",raya[fila][columna]);
@@ -109,6 +113,8 @@ int main (void)
         for (columna=0;columna<=2;columna++)
       printf ("\t |%c|  ",raya[fila][columna]);
 
+
+
       if (((raya[0][0]==79)&&(raya[0][1]==79)&&(raya[0][2]==79))||((raya[1][0]==79)&&(raya[1][1]==79)&&(raya[1][2]==79))||
         ((raya[2][0]==79)&&(raya[2][1]==79)&&(raya[2][2]==79))||((raya[0][0]==79)&&(raya[1][0]==79)&&(raya[2][0]==79))||
            ((raya[0][0]==79)&&(raya[1][1]==79)&&(raya[2][2]==79))||((raya[2][0]==79)&&(raya[1][1]==79)&&(raya[0][2]==79))||
@@ -117,12 +123,33 @@ int main (void)
            printf ("\n\n\nToken \"O\", you win!!...");
            numero='f';
        }
+       else
+    {
+
+      for (fila=0;fila<3;fila++)
+        for(columna=0;columna<3;columna++)
+      {
+          if (raya[fila][columna]==79)
+          {
+              contador++;
+          }
+      }
+
+      if (contador==5)
+      {
+          printf ("\n\n\t\n\t DRAW !!");
+          numero='f';
+      }
+       }
+
+
     }
       if (numero!='f')
     {
 
 
     {
+
         printf ("\n\n\nToken \"X\", choose a box and press enter:");
         scanf ("%d",&numero);
 
@@ -147,6 +174,7 @@ int main (void)
            break;
            case 9 : raya[2][2]=88;
            break;
+           case 10 : printf ("\Choose again");
 
            default: printf ("\nYou choose an incorrect option.");
     }
@@ -168,6 +196,8 @@ int main (void)
        for (fila=2;fila<=2;fila++)
         for (columna=0;columna<=2;columna++)
       printf ("\t |%c|  ",raya[fila][columna]);
+
+
 
 
        if (((raya[0][0]==88)&&(raya[0][1]==88)&&(raya[0][2]==88))||((raya[1][0]==88)&&(raya[1][1]==88)&&(raya[1][2]==88))||
